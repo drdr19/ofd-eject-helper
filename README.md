@@ -29,7 +29,7 @@ macOS 26 起系统原生支持 **OFD**（国内电子发票格式）的预览和
 
 ### 方式一：下载安装包（推荐）
 
-1. 到 [Releases](https://github.com/drdr19/ofd-eject-helper/releases) 页面下载最新的 `OFD弹出助手.dmg`
+1. 到 [Releases](https://github.com/drdr19/ofd-eject-helper/releases) 页面下载最新的 `OFD-Eject-Helper.dmg`
 2. 双击打开，把 **OFD弹出助手** 拖进「应用程序」文件夹
 3. **首次打开需要右键点击 App → 选择「打开」**（因为本 App 使用 ad-hoc 自签名，没有 Apple 开发者证书）
 
@@ -48,7 +48,7 @@ cd ofd-eject-helper
 # 依赖：Xcode Command Line Tools + dmgbuild
 pip3 install dmgbuild
 
-# 一键构建（产出 dist/OFD弹出助手.dmg，通用二进制支持 Intel + Apple Silicon）
+# 一键构建（产出 dist/OFD-Eject-Helper.dmg，通用二进制支持 Intel + Apple Silicon）
 bash scripts/build.sh
 ```
 

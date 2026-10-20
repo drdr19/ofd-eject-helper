@@ -1,6 +1,8 @@
 #!/bin/bash
 # OFD 弹出助手 - 一键构建脚本
-# 产出：dist/OFD弹出助手.dmg（通用二进制，支持 Apple Silicon + Intel）
+# 产出：dist/OFD-Eject-Helper.dmg（通用二进制，支持 Apple Silicon + Intel）
+# 注：DMG 文件名用 ASCII，因为 GitHub Release 会把中文文件名剥成纯英文；
+#     挂载后显示的磁盘卷名仍是中文「OFD弹出助手」。
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -11,7 +13,7 @@ BUNDLE_ID="cn.cuihao.ofd-eject-helper"
 BUILD_DIR="$ROOT/build"
 APP="$BUILD_DIR/$APP_NAME.app"
 DIST="$ROOT/dist"
-DMG="$DIST/$APP_NAME.dmg"
+DMG="$DIST/OFD-Eject-Helper.dmg"
 
 echo "==> 清理旧产物"
 rm -rf "$BUILD_DIR" "$DIST/$APP_NAME.dmg"
