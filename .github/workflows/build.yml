@@ -40,7 +40,9 @@ jobs:
       - name: 验证产物
         run: |
           ls -lh dist/
-          hdiutil attach "dist/OFD弹出助手.dmg" -nobrowse -readonly
+          DMG_FILE="$(ls dist/*.dmg | head -1)"
+          echo "校验文件：$DMG_FILE"
+          hdiutil attach "$DMG_FILE" -nobrowse -readonly
           ls -la "/Volumes/OFD弹出助手/"
           hdiutil detach "/Volumes/OFD弹出助手"
           lipo -info "build/OFD弹出助手.app/Contents/MacOS/OFD弹出助手"
