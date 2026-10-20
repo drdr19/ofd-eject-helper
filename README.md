@@ -1,5 +1,9 @@
 # OFD 弹出助手 (OFD Eject Helper)
 
+[![Build](https://github.com/drdr19/ofd-eject-helper/actions/workflows/build.yml/badge.svg)](https://github.com/drdr19/ofd-eject-helper/actions/workflows/build.yml)
+![Platform](https://img.shields.io/badge/platform-macOS%2013%2B-lightgrey)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
 > 一个小小的 macOS 工具：一键找出卡住的 OFD 缩略图进程，清理掉，然后你就可以正常弹出移动硬盘了。
 
 ![DMG 安装界面](docs/screenshot-dmg.png)
@@ -25,7 +29,7 @@ macOS 26 起系统原生支持 **OFD**（国内电子发票格式）的预览和
 
 ### 方式一：下载安装包（推荐）
 
-1. 到 [Releases](../../releases) 页面下载最新的 `OFD弹出助手.dmg`
+1. 到 [Releases](https://github.com/drdr19/ofd-eject-helper/releases) 页面下载最新的 `OFD弹出助手.dmg`
 2. 双击打开，把 **OFD弹出助手** 拖进「应用程序」文件夹
 3. **首次打开需要右键点击 App → 选择「打开」**（因为本 App 使用 ad-hoc 自签名，没有 Apple 开发者证书）
 
@@ -38,7 +42,7 @@ macOS 26 起系统原生支持 **OFD**（国内电子发票格式）的预览和
 ### 方式二：从源码构建
 
 ```bash
-git clone https://github.com/<your-name>/ofd-eject-helper.git
+git clone https://github.com/drdr19/ofd-eject-helper.git
 cd ofd-eject-helper
 
 # 依赖：Xcode Command Line Tools + dmgbuild
