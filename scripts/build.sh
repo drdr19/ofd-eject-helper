@@ -20,6 +20,9 @@ rm -rf "$BUILD_DIR"
 rm -f "$DIST"/*.dmg 2>/dev/null || true
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" "$DIST"
 
+# 防止 Spotlight 索引 build/ 里的 App 副本（否则搜 App 名会出两个结果）
+touch "$BUILD_DIR/.metadata_never_index"
+
 echo "==> 编译 arm64"
 swiftc -O -target arm64-apple-macos13.0 -framework Cocoa \
     src/main.swift -o "$BUILD_DIR/app-arm64" 2>&1 | grep -v "warning:" || true
