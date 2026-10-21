@@ -1,4 +1,4 @@
-# OFD 弹出助手 (OFD Eject Helper)
+# WH-1：OFD弹出助手
 
 [![Build](https://github.com/drdr19/ofd-eject-helper/actions/workflows/build.yml/badge.svg)](https://github.com/drdr19/ofd-eject-helper/actions/workflows/build.yml)
 ![Platform](https://img.shields.io/badge/platform-macOS%2013%2B-lightgrey)
@@ -29,13 +29,13 @@ macOS 26 起系统原生支持 **OFD**（国内电子发票格式）的预览和
 
 ### 方式一：下载安装包（推荐）
 
-1. 到 [Releases](https://github.com/drdr19/ofd-eject-helper/releases) 页面下载最新的 `OFD-Eject-Helper.dmg`
-2. 双击打开，把 **OFD弹出助手** 拖进「应用程序」文件夹
+1. 到 [Releases](https://github.com/drdr19/ofd-eject-helper/releases) 页面下载最新的 `WH-1-OFD-Eject-Helper.dmg`
+2. 双击打开，把 **WH-1：OFD弹出助手** 拖进「应用程序」文件夹
 3. **首次打开需要右键点击 App → 选择「打开」**（因为本 App 使用 ad-hoc 自签名，没有 Apple 开发者证书）
 
 > 如果从微信 / 网盘下载后被系统拦截，可以打开「终端」执行：
 > ```bash
-> xattr -cr "/Applications/OFD弹出助手.app"
+> xattr -cr "/Applications/WH-1：OFD弹出助手.app"
 > ```
 > 然后再右键 →「打开」。
 
@@ -48,7 +48,7 @@ cd ofd-eject-helper
 # 依赖：Xcode Command Line Tools + dmgbuild
 pip3 install dmgbuild
 
-# 一键构建（产出 dist/OFD-Eject-Helper.dmg，通用二进制支持 Intel + Apple Silicon）
+# 一键构建（产出 dist/WH-1-OFD-Eject-Helper.dmg，通用二进制支持 Intel + Apple Silicon）
 bash scripts/build.sh
 ```
 
@@ -92,10 +92,12 @@ bash scripts/build.sh
 .
 ├── src/
 │   ├── main.swift          # 全部源码（约 170 行）
-│   └── Info.plist          # App 配置
+│   └── Info.plist          # App 配置（Bundle ID / 版本 / 显示名）
 ├── scripts/
-│   ├── build.sh            # 一键构建脚本
-│   └── dmg_settings.py     # DMG 布局配置（背景图、图标位置）
+│   ├── build.sh            # 一键构建脚本（编译 → 图标 → 签名 → DMG → 自检）
+│   ├── dmg_settings.py     # DMG 布局配置（背景图、图标位置）
+│   ├── make_dmg_bg.py      # 生成 DMG 背景图（PingFang 中文字体）
+│   └── make_transparent.py # 图标抠透明
 ├── assets/
 │   ├── icon-1024.png       # App 图标源图
 │   └── dmg-background.png  # 安装界面背景图
@@ -103,6 +105,12 @@ bash scripts/build.sh
 │   └── screenshot-dmg.png  # 安装界面截图
 └── dist/                   # 构建产物（已 gitignore）
 ```
+
+## 命名说明
+
+`WH-1` 是编号前缀，方便同一系列的小工具按序号归档。App 的显示名、`.app` 包名、
+DMG 卷名都带 `WH-1：` 前缀；DMG **文件名**保持 ASCII（`WH-1-OFD-Eject-Helper.dmg`），
+因为 GitHub Release 会把中文附件名剥掉。
 
 ## 常见问题
 

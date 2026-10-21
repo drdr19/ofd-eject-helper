@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>OFD弹出助手</string>
+	<string>WH-1：OFD弹出助手</string>
 	<key>CFBundleDisplayName</key>
-	<string>OFD弹出助手</string>
+	<string>WH-1：OFD弹出助手</string>
 	<key>CFBundleIdentifier</key>
-	<string>cn.cuihao.ofd-eject-helper</string>
+	<string>cn.cuihao.wh-1-ofd-eject-helper</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1.0</string>
 	<key>CFBundleExecutable</key>
-	<string>OFD弹出助手</string>
+	<string>WH-1：OFD弹出助手</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleInfoDictionaryVersion</key>

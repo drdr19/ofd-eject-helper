@@ -10,6 +10,9 @@ on:
 permissions:
   contents: write
 
+env:
+  APP_NAME: "WH-1：OFD弹出助手"
+
 jobs:
   build:
     name: 编译并打包 DMG
@@ -42,15 +45,19 @@ jobs:
           ls -lh dist/
           DMG_FILE="$(ls dist/*.dmg | head -1)"
           echo "校验文件：$DMG_FILE"
-          hdiutil attach "$DMG_FILE" -nobrowse -readonly
-          ls -la "/Volumes/OFD弹出助手/"
-          hdiutil detach "/Volumes/OFD弹出助手"
-          lipo -info "build/OFD弹出助手.app/Contents/MacOS/OFD弹出助手"
+          # 挂到自选挂载点，避免依赖卷名（改名后不用同步改这里）
+          MOUNT="$(mktemp -d)"
+          hdiutil attach "$DMG_FILE" -nobrowse -readonly -mountpoint "$MOUNT"
+          ls -la "$MOUNT"
+          hdiutil detach "$MOUNT"
+          BIN="build/$APP_NAME.app/Contents/MacOS/$APP_NAME"
+          file "$BIN"
+          lipo -archs "$BIN"
 
       - name: 上传构建产物（每次运行都可用）
         uses: actions/upload-artifact@v4
         with:
-          name: OFD弹出助手-dmg
+          name: WH-1-OFD-Eject-Helper-dmg
           path: dist/*.dmg
           if-no-files-found: error
 

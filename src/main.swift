@@ -94,7 +94,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         // 用独立窗口承载，确保能正常关闭
-        alert.window.title = "OFD 弹出助手"
+        alert.window.title = "WH-1：OFD弹出助手"
         alert.window.level = .floating
 
         let response = alert.runModal()
@@ -122,7 +122,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             : "清理过程中遇到问题，\n不过可能已经无进程占用了，\n你可以先试试手动弹出。"
         alert.alertStyle = .informational
         alert.addButton(withTitle: "完成")
-        alert.window.title = "OFD 弹出助手"
+        alert.window.title = "WH-1：OFD弹出助手"
         alert.window.level = .floating
 
         alert.runModal()
